@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu | Millets Cafe</title>
+<style>
+:root{--green:#244b37;--green2:#38664b;--cream:#f7f4e9;--paper:#fffdf7;--gold:#c99b45;--ink:#202b22;--muted:#687269;--line:#e5e3d8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:Segoe UI,Arial,sans-serif}button,input,select{font:inherit}a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:15px clamp(16px,5vw,65px);
+  background:#fffdf7f2;border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px)}  
+  .brand{
+    font:bold 1.3rem Georgia,serif;
+    color:var(--green)
+  }
+    .brand small{
+      display:block;
+      font:700 .62rem Segoe UI,sans-serif;
+      letter-spacing:.18em;color:var(--muted);
+      margin-top:4px}.nav{display:flex;
+        gap:16px;
+        align-items:center;
+        flex-wrap:wrap
+      }
+        .nav a{
+          font-size:.9rem
+        }
+        .btn{
+          border:0;
+          border-radius:30px;
+          background:var(--green);
+          color:white;
+          padding:11px 17px;
+          font-weight:700;
+          cursor:pointer
+        }
+        .btn:hover{
+          background:var(--green2)
+        }
+.hero{
+  text-align:center;
+  background:var(--green);
+  color:white;padding:70px 20px 62px
+}
+.eyebrow
+{
+  color:#e3c17d;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.2em;
+  text-transform:uppercase
+}
+.hero h1{
+  font:500 clamp(2.7rem,6vw,4.7rem) Georgia,serif;margin:13px 0
+}
+.hero p{max-width:620px;margin:auto;line-height:1.7;color:#e0e8dc
+}
+
+.tools{
+  position:relative;z-index:2;
+  max-width:1150px;
+  margin:-22px auto 0;
+  padding:0 20px
+}
+.tools-inner{
+  display:flex;gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:16px;padding:14px;
+  box-shadow:0 10px 30px #233a2a10
+}
+.search{
+  flex:1;min-width:200px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:12px 15px;
+  outline-color:var(--green2)
+}
+.cats{
+  display:flex;
+  gap:7px;flex-wrap:wrap
+}
+.cats a{
+  font-size:.8rem;
+  font-weight:700;
+  background:#eff0e6;padding:9px 11px;border-radius:30px
+}
+
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:45px 20px 75px
+}
+.section{
+  margin-bottom:55px
+}
+.heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:16px;
+  margin-bottom:20px
+}
+.number{
+  font-size:.75rem;
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:.16em
+}
+.heading h2{
+  font:500 clamp(1.8rem,4vw,2.6rem) Georgia,serif;color:var(--green);
+  margin:7px 0 0
+}
+.heading p{
+  max-width:430px;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.5
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:17px
+}
+.card{
+  overflow:hidden;background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:17px;
+  box-shadow:0 5px 20px #233a2a08;display:flex;
+  flex-direction:column
+}
+.placeholder{
+  display:grid;place-items:center;
+  min-height:95px;
+  background:linear-gradient(135deg,#e9eddf,#f4e9d0);
+  font-size:2rem
+}
+.content{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1
+}
+.foodtop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px
+}
+.foodtop h3{
+  margin:0;
+  color:var(--green);
+  font-size:1.08rem
+}
+.price{
+  white-space:nowrap;
+  font-weight:800;color:var(--green)
+}
+.desc{
+  min-height:35px;
+  color:var(--muted);
+  font-size:.85rem;
+  line-height:1.5;
+  margin:8px 0 14px
+}
+.nutrition{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:5px;
+  margin-bottom:15px
+}
+.nutrient{
+  text-align:center;
+  padding:8px 3px;background:#f1f1e8;
+  border-radius:8px
+}
+.nutrient strong{
+  display:block;
+  color:var(--green);
+  font-size:.82rem
+}
+.nutrient span{
+  display:block;
+  color:var(--muted);
+  font-size:.65rem;
+  margin-top:3px
+}
+.bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:auto
+}
+.serving{
+  font-size:.75rem;
+  color:var(--muted)
+}
+.add{
+  border:1px solid var(--green);
+  border-radius:25px;
+  padding:8px 13px;
+  background:transparent;
+  color:var(--green);
+  font-weight:800;
+  cursor:pointer
+}
+.add:hover{
+  background:var(--green);
+  color:white
+}
+.note{
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.6
+}
+.hidden{
+  display:none!important
+}
+footer{
+  text-align:center;
+  background:#1c3a2a;
+  color:#e8eee5;
+  padding:28px 15px;
+  font-size:.85rem
+}
+footer a{
+  color:#f0d59d
+}
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:10;
+  background:#0f191273;
+  display:none
+}
+.overlay.show{
+  display:block
+}
+.cart{
+  position:fixed;
+  z-index:11;
+  right:0;
+  top:0;
+  height:100dvh;
+  width:min(420px,100%);
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  transform:translateX(105%);
+  transition:.25s;
+  box-shadow:-15px 0 45px #0002
+}
+.cart.open{
+  transform:translateX(0)
+}
+.carthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  border-bottom:1px solid var(--line)
+}
+.carthead h2{
+  margin:0;
+  color:var(--green);
+  font:500 1.7rem Georgia,serif
+}
+.close{
+  border:0;background:none;
+  font-size:1.6rem;
+  cursor:pointer
+}
+.cartitems{
+  padding:15px 20px;
+  overflow:auto;
+  flex:1
+}
+.cartrow{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px solid var(--line)
+}
+.cartrow strong{
+  color:var(--green)
+}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:7px
+}
+.qty button{
+  border:1px solid var(--line);
+  background:white;
+  border-radius:50%;
+  width:26px;
+  height:26px;
+  cursor:pointer
+}
+.cartfoot{
+  padding:18px 20px;
+  border-top:1px solid var(--line)
+}
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+  margin-bottom:14px
+}
+.cartfoot .btn{
+  width:100%
+}
+.modalwrap{
+  display:none;
+  position:fixed;
+  z-index:20;
+  inset:0;
+  background:#0f19129c;
+  place-items:center;
+  padding:16px
+}
+.modalwrap.show{
+  display:grid
+}
+.modal{
+  width:min(500px,100%);
+  max-height:92dvh;
+  overflow:auto;
+  padding:23px;
+  background:var(--paper);
+  border-radius:18px
+}
+.modal h2{
+  font:500 1.8rem Georgia,serif;color:var(--green);
+  margin:0 0 7px
+}
+.modal p{
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.5
+}
+.fields{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:12px
+}
+.field.full{
+  grid-column:1/-1
+}
+.field label{
+  font-size:.82rem;
+  font-weight:700
+}
+.field input,.field select{
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:9px
+}
+.actions{
+  display:flex;gap:10px
+}
+.actions>*{flex:1}
+.secondary{
+  border:1px solid var(--line);
+  border-radius:25px;
+  background:white;
+  padding:11px;
+  cursor:pointer
+}
+.message{
+  font-size:.88rem;
+  line-height:1.5;
+  margin-top:12px
+}
+ @media(max-width:800px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+  .heading{
+    align-items:start;
+    flex-direction:column
+  }
+  .nav>a:not(.home)
+  {
+    display:none
+  }
+}
+@media(max-width:540px)
+{header{
+  padding:12px
+  }
+  .brand{
+    font-size:1.1rem
+    }
+    .hero{
+      padding:55px 17px
+      }
+      .tools{
+        padding:0 12px
+        }
+        main{
+          padding:35px 13px 55px
+          }
+          .grid{
+            grid-template-columns:1fr
+            }
+            .placeholder{
+              min-height:75px
+              }
+              .fields{
+                grid-template-columns:1fr
+                }
+                .field.full{
+                  grid-column:auto
+                  }
+                  .cats a{
+                    font-size:.74rem
+                    }
+                    }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="millets.html">Millets Cafe
+    <small>EAT WELL. FEEL WELL.</small>
+  </a>
+  <nav class="nav">
+    <a class="home" href="millets.html">Home</a>
+    <a href="#breakfast">Breakfast</a>
+    <a href="#gym">High Protein</a>
+    <button class="btn" id="openCart">Cart (<span id="cartCount">0</span>)
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Fresh · Wholesome · Millet-powered</div>
+  <h1>Our Menu</h1>
+  <p>Good food for every kind of day. Explore the menu, check nutrition details, and build your order.</p>
+</section>
+<div class="tools">
+  <div class="tools-inner">
+    <input class="search" id="search" placeholder="Search menu items..." aria-label="Search menu items">
+    <nav class="cats">
+      <a href="#breakfast">Breakfast</a>
+      <a href="#snacks">Snacks</a>
+      <a href="#shakes">Shakes</a>
+      <a href="#icecream">Ice Creams</a>
+      <a href="#gym">Gym Focused</a>
+    </nav>
+  </div>
+</div>
+<main>
+
+<!-- EDIT EACH CARD: replace ITEM, PRICE, description and nutrition values. Change data-price="0" to the actual numeric price (e.g. 99) so cart total works. -->
+
+<!-- BREAKFAST -->
+<section class="section" id="breakfast">
+  <div class="heading">
+    <div>
+      <div class="number">01 / START YOUR DAY</div>
+      <h2>Morning Breakfast</h2>
+    </div>
+    <p>A wholesome start for slow mornings and busy days.</p>
+  </div>
+
+  <div class="grid">
+    <!-- BREAKFAST DISH 1: Copy this article to add another dish -->
+    <article class="card" data-name="Millet Porridge" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">🌾</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millet Porridge</h3>
+          <div class="price">₹99</div>
+        </div>
+        <p class="desc">A warm and wholesome millet breakfast.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>220</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>8 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>35 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 bowl</span>
+          <button class="add" type="button" data-name="Millet Porridge" data-price="99">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- BREAKFAST DISH 2 -->
+    <article class="card" data-name="Ragi Pancakes" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">🥞</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Ragi Pancakes</h3>
+          <div class="price">₹129</div>
+        </div>
+        <p class="desc">Soft ragi pancakes for a satisfying morning.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>280</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>42 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>8 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 3 pieces</span>
+          <button class="add" type="button" data-name="Ragi Pancakes" data-price="129">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- BREAKFAST DISH 3 -->
+    <article class="card" data-name="Millet Upma" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">🍽️</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millet Upma</h3>
+          <div class="price">₹109</div>
+        </div>
+        <p class="desc">A savoury millet dish with vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>250</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>38 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 plate</span>
+          <button class="add" type="button" data-name="Millet Upma" data-price="109">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SNACKS -->
+<section class="section" id="snacks">
+  <div class="heading">
+    <div>
+      <div class="number">02 / BETWEEN MEALS</div>
+      <h2>Snacks</h2>
+    </div>
+    <p>Light bites for the little breaks that keep you going.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Crispy Corn" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🥜</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Crispy Corn</h3>
+          <div class="price">₹170</div>
+        </div>
+        <p class="desc">A crunchy, savoury snack for any time of day.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>160</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Crispy Corn" data-price="170">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Cheese Loaded Fries" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🧀</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Cheese Loaded Fries</h3>
+          <div class="price">₹150</div>
+        </div>
+        <p class="desc">Crispy golden fries loaded with rich, creamy cheese.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>140</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 40 g</span>
+          <button class="add" type="button" data-name="Cheese Loaded Fries" data-price="150 ">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Peri Peri Fries" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Peri Peri Fries</h3>
+          <div class="price">₹119</div>
+        </div>
+        <p class="desc">Crispy fries with a spicy peri-peri coating.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Peri Peri Fries" data-price="119">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="French Fries" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>French Fries</h3>
+          <div class="price">₹89</div>
+        </div>
+        <p class="desc">Golden, crispy fries with a perfectly salted crunch.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="French Fries" data-price="89">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="breakfast">
+  <div class="heading">
+    <div>
+      <div class="number">03 / Wok-tossed favourites, full of flavour.</div>
+      <h2>Fried Rice</h2>
+    </div>
+    <p>A wholesome start for slow mornings and busy days.</p>
+  </div>
+
+  <div class="grid">
+    <!-- BREAKFAST DISH 1: Copy this article to add another dish -->
+    <article class="card" data-name="Fried Rice" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">�</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Fried Rice</h3>
+          <div class="price">₹149</div>
+        </div>
+        <p class="desc">A delicious and filling fried rice dish.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>280</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>42 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 bowl</span>
+          <button class="add" type="button" data-name="Fried Rice" data-price="149">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- BREAKFAST DISH 2 -->
+    <article class="card" data-name="Schezwan Fried Rice" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">🥞</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Schezwan Fried Rice</h3>
+          <div class="price">₹219</div>
+        </div>
+        <p class="desc">A spicy rice favourite tossed with bold Schezwan flavours.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>280</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>42 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>8 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 bowl</span>
+          <button class="add" type="button" data-name="Schezwan Fried Rice" data-price="219">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- BREAKFAST DISH 3 -->
+    <article class="card" data-name="Paneer Fried Rice" data-category="breakfast">
+      <div class="placeholder" aria-hidden="true">🍽️</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Paneer Fried Rice</h3>
+          <div class="price">₹179</div>
+        </div>
+        <p class="desc">Flavourful fried rice tossed with soft paneer and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>250</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>38 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 plate</span>
+          <button class="add" type="button" data-name="Paneer Fried Rice" data-price="179">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SOUTH INDIAN -->
+<section class="section" id="snacks">
+  <div class="heading">
+    <div>
+      <div class="number">04 / South Indian classics, made for every craving.</div>
+      <h2>SOUTH INDIAN</h2>
+    </div>
+    <p>Light bites for the little breaks that keep you going.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Masala Dosa" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🥜</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Masala Dosa</h3>
+          <div class="price">₹165</div>
+        </div>
+        <p class="desc">A crunchy, savoury snack for any time of day.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>160</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Masala Dosa" data-price="165">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Ragi Dosa" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🧀</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Ragi Dosa</h3>
+          <div class="price">₹190</div>
+        </div>
+        <p class="desc">Crispy ragi bites with a savoury seasoning.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>140</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 40 g</span>
+          <button class="add" type="button" data-name="Ragi Dosa" data-price="190">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Multi Grain Dosa" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Multi Grain Dosa</h3>
+          <div class="price">₹190</div>
+        </div>
+        <p class="desc">A wholesome, crispy dosa made with a blend of nutritious grains.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Multi Grain Dosa" data-price="190">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="Plain Dosa" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Plain Dosa</h3>
+          <div class="price">₹100</div>
+        </div>
+        <p class="desc">A classic, crispy dosa with a mild, comforting flavour.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Plain Dosa" data-price="100">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Special Dosa" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Special Dosa</h3>
+          <div class="price">₹190</div>
+        </div>
+        <p class="desc">A special, crispy dosa with a unique twist.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Special Dosa" data-price="190">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Uttpam" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Uttpam</h3>
+          <div class="price">₹135</div>
+        </div>
+        <p class="desc">A soft, savoury South Indian pancake with a golden finish.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Uttpam" data-price="135">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Millets Uttpam" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millets Uttpam</h3>
+          <div class="price">₹150</div>
+        </div>
+        <p class="desc">A wholesome millet-based uttapam packed with comforting flavours.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Millets Uttpam" data-price="150">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="section" id="Chinese">
+  <div class="heading">
+    <div>
+      <div class="number">05 / Bold flavours and irresistible Indo-Chinese favourites.</div>
+      <h2>CHINESE</h2>
+    </div>
+    <p>Light bites for the little breaks that keep you going.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Veg Noodles" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🥜</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Veg Noodles</h3>
+          <div class="price">₹179</div>
+        </div>
+        <p class="desc">A classic noodle favourite tossed with fresh vegetables and savoury seasoning.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>160</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Veg Noodles" data-price="179">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Hakka Noodles" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🧀</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Hakka Noodles</h3>
+          <div class="price">₹240</div>
+        </div>
+        <p class="desc">Street-style noodles tossed with crunchy vegetables and bold Indo-Chinese flavours.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>140</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 40 g</span>
+          <button class="add" type="button" data-name="Hakka Noodles" data-price="240">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Singhapuri Noodles" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Singhapuri Noodles</h3>
+          <div class="price">₹239</div>
+        </div>
+        <p class="desc">A flavourful noodle dish with a spicy, tangy and savoury twist.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Singhapuri Noodles" data-price="239">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="Chilli garlic Noodles" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chilli garlic Noodles</h3>
+          <div class="price">₹239</div>
+        </div>
+        <p class="desc">Noodles tossed with aromatic garlic, fiery chilli and savoury spices.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Chilli garlic Noodles" data-price="239">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Chilli Potato" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chilli Potato</h3>
+          <div class="price">₹220</div>
+        </div>
+        <p class="desc">Crispy potato bites tossed in a spicy, flavourful sauce.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Chilli Potato" data-price="220">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Honey Chilli Potato" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Honey Chilli Potato</h3>
+          <div class="price">₹220</div>
+        </div>
+        <p class="desc">Crispy fries with a sweet and spicy honey glaze.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Honey Chilli Potato" data-price="220">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Chilli Paneer Gravy" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chilli Paneer Gravy</h3>
+          <div class="price">₹239</div>
+        </div>
+        <p class="desc">Soft paneer tossed in a spicy Indo-Chinese sauce,with rich gravy.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Chilli Paneer Gravy" data-price="250">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Chilli Paneer Dry" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🥜</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chilli Paneer Dry</h3>
+          <div class="price">₹239 </div>
+        </div>
+        <p class="desc">Soft paneer tossed in a spicy Indo-Chinese sauce, served dry.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>160</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Chilli Paneer Dry" data-price="239">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Mushroom Honey Chilli" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🧀</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Mushroom Honey Chilli</h3>
+          <div class="price">₹240</div>
+        </div>
+        <p class="desc">Crispy mushrooms coated in a sweet, sticky and spicy honey chilli glaze.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>140</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 40 g</span>
+          <button class="add" type="button" data-name="Mushroom Honey Chilli" data-price="240">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Mushroom Chilli Garlic" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Mushroom Chilli Garlic</h3>
+          <div class="price">₹239</div>
+        </div>
+        <p class="desc">Mushrooms tossed with bold garlic, fiery chilli and savoury sauces.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Mushroom Chilli Garlic" data-price="239">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="Mushroom Salt Peppers" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Mushroom Salt Peppers</h3>
+          <div class="price">₹239</div>
+        </div>
+        <p class="desc">Crispy mushrooms seasoned with aromatic spices and a peppery kick.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Mushroom Salt Peppers" data-price="239">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Manchurian Dry" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Manchurian Dry</h3>
+          <div class="price">₹160</div>
+        </div>
+        <p class="desc">Crispy vegetable balls tossed in a tangy Indo-Chinese sauce, served dry.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Manchurian Dry" data-price="160">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Manchurian Gravy" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Manchurian Gravy</h3>
+          <div class="price">₹180</div>
+        </div>
+        <p class="desc">Crispy Crispy vegetable balls tossed in a tangy Indo-Chinese sauce,with gravy.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Manchurian Gravy" data-price="180">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Millets manchurian Gravy" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millets manchurian Gravy</h3>
+          <div class="price">₹190</div>
+        </div>
+        <p class="desc">A wholesome millet-inspired twist on Manchurian, tossed in a flavourful Indo-Chinese sauce.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Millets manchurian Gravy" data-price="190">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="Millets Manchurian Dry" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millets Manchurian Dry</h3>
+          <div class="price">₹180</div>
+        </div>
+        <p class="desc">A wholesome millet-inspired twist on Manchurian, served dry.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Millets Manchurian Dry" data-price="180">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Momos(5 pieces)" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Momos(5 pieces)</h3>
+          <div class="price">₹55</div>
+        </div>
+        <p class="desc">Soft dumplings filled with seasoned vegetables and served with a spicy dipping sauce.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Momos(5 pieces)" data-price="55">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Burgers and Sandwiches -->
+<section class="section" id="snacks">
+  <div class="heading">
+    <div>
+      <div class="number">06 / Stacked with flavour, made for every craving.</div>
+      <h2>Burgers and Sandwiches</h2>
+    </div>
+    <p>Light bites for the little breaks that keep you going.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Paneer Sandwich" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🥜</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Paneer Sandwich</h3>
+          <div class="price">₹149</div>
+        </div>
+        <p class="desc">A deliciously toasted sandwich filled with soft paneer, fresh vegetables and flavourful seasonings.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>160</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>5 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Paneer Sandwich" data-price="149">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Cheese cottage Sandwich" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🧀</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Cheese cottage Sandwich</h3>
+          <div class="price">₹150</div>
+        </div>
+        <p class="desc">A delicious blend of cheese and cottage cheese in a crispy bread.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>140</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 40 g</span>
+          <button class="add" type="button" data-name="Cheese cottage Sandwich" data-price="150">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="cheese corn sandwich" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Cheese Corn Sandwich</h3>
+          <div class="price">₹120</div>
+        </div>
+        <p class="desc">A hearty and nutritious sandwich made with cheese and corn.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Cheese Corn Sandwich" data-price="120">+ Add</button>
+        </div>
+      </div>
+    </article>
+    <article class="card" data-name="Veg Sandwich" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Veg Sandwich</h3>
+          <div class="price">₹100</div>
+        </div>
+        <p class="desc">A classic and crispy sandwich made with fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Veg Sandwich" data-price="100">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Millets Sandwich" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millets Sandwich</h3>
+          <div class="price">₹135</div>
+        </div>
+        <p class="desc">A flavorful and crispy sandwich made with millet bread and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Millets Sandwich" data-price="135">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Double Cheese Burger" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Double Cheese Burger</h3>
+          <div class="price">₹135</div>
+        </div>
+        <p class="desc">A juicy burger with two slices of cheese and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Double Cheese Burger" data-price="135">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Paneer Burger" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Paneer Burger</h3>
+          <div class="price">₹150</div>
+        </div>
+        <p class="desc">A delicious burger filled with paneer and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Paneer Burger" data-price="150">+ Add</button>
+        </div>
+      </div>
+    </article>
+       <article class="card" data-name="Aloo Tikki Burger" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Aloo Tikki Burger</h3>
+          <div class="price">₹90</div>
+        </div>
+        <p class="desc">A delicious burger filled with spiced potato patty and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>280</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>8 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Aloo Tikki Burger" data-price="90">+ Add</button>
+        </div>
+      </div>
+    </article>
+     <article class="card" data-name="Millets Burger" data-category="snacks">
+      <div class="placeholder" aria-hidden="true">🍟</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Millets Burger</h3>
+          <div class="price">₹120</div>
+        </div>
+        <p class="desc">A delicious burger filled with millets and fresh vegetables.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 150 g</span>
+          <button class="add" type="button" data-name="Millets Burger" data-price="120">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- SHAKES -->
+<section class="section" id="shakes">
+  <div class="heading">
+    <div>
+      <div class="number">07 / SIP SOMETHING GOOD</div>
+      <h2>Shakes &amp; Smoothies</h2>
+    </div>
+    <p>Refreshing blends for a quick pick-me-up.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Banana Shake" data-category="shakes">
+      <div class="placeholder" aria-hidden="true">🍌</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Banana Shake</h3>
+          <div class="price">₹99</div>
+        </div>
+        <p class="desc">A creamy banana shake for a refreshing break.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>210</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>32 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>6 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 300 ml</span>
+          <button class="add" type="button" data-name="Banana Shake" data-price="99">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Chocolate Shake" data-category="shakes">
+      <div class="placeholder" aria-hidden="true">🥤</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chocolate Shake</h3>
+          <div class="price">₹129</div>
+        </div>
+        <p class="desc">A rich chocolate-flavoured chilled shake.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>290</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>40 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>10 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 300 ml</span>
+          <button class="add" type="button" data-name="Chocolate Shake" data-price="129">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Banana Oat Smoothie" data-category="shakes">
+      <div class="placeholder" aria-hidden="true">🥛</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Banana Oat Smoothie</h3>
+          <div class="price">₹139</div>
+        </div>
+        <p class="desc">Banana and oats blended into a smooth drink.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>270</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>10 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>42 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 300 ml</span>
+          <button class="add" type="button" data-name="Banana Oat Smoothie" data-price="139">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ICE CREAMS -->
+<section class="section" id="icecream">
+  <div class="heading">
+    <div>
+      <div class="number">08 / A LITTLE TREAT</div>
+      <h2>Ice Creams &amp; Desserts</h2>
+    </div>
+    <p>A sweet finish for your favourite moments.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Vanilla Ice Cream" data-category="icecream">
+      <div class="placeholder" aria-hidden="true">🍨</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Vanilla Ice Cream</h3>
+          <div class="price">₹79</div>
+        </div>
+        <p class="desc">A classic, creamy vanilla-flavoured treat.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>180</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>3 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>22 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 scoop</span>
+          <button class="add" type="button" data-name="Vanilla Ice Cream" data-price="79">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Chocolate Ice Cream" data-category="icecream">
+      <div class="placeholder" aria-hidden="true">🍦</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Chocolate Ice Cream</h3>
+          <div class="price">₹89</div>
+        </div>
+        <p class="desc">A chocolate ice cream for a sweet treat.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>210</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>25 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>11 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 scoop</span>
+          <button class="add" type="button" data-name="Chocolate Ice Cream" data-price="89">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Fruit Sundae" data-category="icecream">
+      <div class="placeholder" aria-hidden="true">🍧</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Fruit Sundae</h3>
+          <div class="price">₹119</div>
+        </div>
+        <p class="desc">A chilled dessert with fruit and ice cream.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>240</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>4 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>36 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 bowl</span>
+          <button class="add" type="button" data-name="Fruit Sundae" data-price="119">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- GYM / HIGH PROTEIN -->
+<section class="section" id="gym">
+  <div class="heading">
+    <div>
+      <div class="number">09 / FUEL YOUR GOALS</div>
+      <h2>Gym Focused · High Protein</h2>
+    </div>
+    <p>Protein-forward options for customers keeping an eye on macros.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card" data-name="Peanut Butter Shake" data-category="gym">
+      <div class="placeholder" aria-hidden="true">💪</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Peanut Butter Shake</h3>
+          <div class="price">₹159</div>
+        </div>
+        <p class="desc">A creamy peanut butter shake with a rich flavour.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>360</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>18 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>35 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>17 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 300 ml</span>
+          <button class="add" type="button" data-name="Peanut Butter Shake" data-price="159">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="High Protein Oats" data-category="gym">
+      <div class="placeholder" aria-hidden="true">🥣</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>High Protein Oats</h3>
+          <div class="price">₹149</div>
+        </div>
+        <p class="desc">Oats with milk, nuts and protein-rich ingredients.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>340</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>20 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>45 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>9 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 1 bowl</span>
+          <button class="add" type="button" data-name="High Protein Oats" data-price="149">+ Add</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Banana Protein Smoothie" data-category="gym">
+      <div class="placeholder" aria-hidden="true">🥤</div>
+      <div class="content">
+        <div class="foodtop">
+          <h3>Banana Protein Smoothie</h3>
+          <div class="price">₹179</div>
+        </div>
+        <p class="desc">A banana smoothie made with protein-rich ingredients.</p>
+        <div class="nutrition">
+          <div class="nutrient"><strong>320</strong><span>kcal</span></div>
+          <div class="nutrient"><strong>24 g</strong><span>Protein</span></div>
+          <div class="nutrient"><strong>38 g</strong><span>Carbs</span></div>
+          <div class="nutrient"><strong>7 g</strong><span>Fats</span></div>
+        </div>
+        <div class="bottom">
+          <span class="serving">Serving: 300 ml</span>
+          <button class="add" type="button" data-name="Banana Protein Smoothie" data-price="179">+ Add</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<p class="note">Nutrition values are placeholders. Add values based on the actual recipe and serving size before publishing.</p>
+</main>
+<footer>© 
+  <span id="year">
+
+  </span> Millets Cafe · <a href="millets.html">Back to Home</a>
+</footer>
+
+ <div class="overlay" id="overlay">
+  </div>
+ <aside class="cart" id="cart" aria-label="Shopping cart">
+  <div class="carthead">
+    <h2>Your Cart</h2>
+    <button class="close" id="closeCart" aria-label="Close cart">×</button>
+  </div>
+  <div class="cartitems" id="cartItems">
+    <p class="note">Your cart is empty. Add something from the menu.</p>
+  </div>
+  <div class="cartfoot">
+    <div class="total">
+      <span>Total</span>
+      <span id="total">₹0</span>
+    </div>
+    <button class="btn" id="checkoutBtn">Continue to Checkout</button>
+  </div>
+</aside>
+
+<div class="modalwrap" id="checkoutModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <h2 id="checkoutTitle">Place your order</h2>
+  <p>Enter your details so the cafe can process your order.</p>
+  <form id="checkoutForm">
+    <div class="fields">
+    <div class="field full">
+      <label for="fullName">Full name *</label>
+      <input id="fullName" name="fullName" required autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="phone">Phone number *</label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel">
+    </div>
+    <div class="field">
+      <label for="email">Email (optional)</label>
+      <input id="email" name="email" type="email" autocomplete="email">
+    </div>
+    <div class="field full">
+      <label for="paymentMode">Payment mode *</label>
+      <select id="paymentMode" name="paymentMode" required>
+        <option value="">Select payment mode</option>
+        <option>Cash</option>
+        <option>UPI</option>
+        <option>Card</option>
+      </select>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="secondary" type="button" id="cancelCheckout">Back</button>
+    <button class="btn" id="placeOrder" type="submit">Place Order</button>
+  </div>
+  <div class="message" id="message" role="status"></div>
+</form>
+</div></div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const cart = new Map(), cartPanel = document.getElementById("cart"), overlay = document.getElementById("overlay");
+const cartItems = document.getElementById("cartItems"), cartCount = document.getElementById("cartCount"), totalEl = document.getElementById("total");
+function money(n){return "₹"+Number(n).toLocaleString("en-IN",{maximumFractionDigits:2});}
+function openCart(){cartPanel.classList.add("open");overlay.classList.add("show");}
+function closeCart(){cartPanel.classList.remove("open");overlay.classList.remove("show");}
+document.getElementById("openCart").addEventListener("click",openCart);
+document.getElementById("closeCart").addEventListener("click",closeCart);
+overlay.addEventListener("click",closeCart);
+
+
+document.addEventListener("click", event => {
+  const button = event.target.closest(".add");
+  if (!button) return;
+
+  const name = button.dataset.name || "ITEM";
+  const price = Number(button.dataset.price || 0);
+  const key = name + "|" + price;
+
+  if (cart.has(key)) {
+    cart.get(key).quantity++;
+  } else {
+    cart.set(key, { name, price, quantity: 1 });
+  }
+
+  renderCart();
+  openCart();
+});
+
+function changeQty(key,delta){const item=cart.get(key);if(!item)return;item.quantity+=delta;if(item.quantity<=0)cart.delete(key);renderCart();}
+function renderCart(){
+  let count=0,total=0;cartItems.replaceChildren();
+  if(!cart.size){const p=document.createElement("p");p.className="note";p.textContent="Your cart is empty. Add something from the menu.";cartItems.appendChild(p);}
+  for(const [key,item] of cart){
+    count+=item.quantity;total+=item.price*item.quantity;
+    const row=document.createElement("div");row.className="cartrow";
+    const info=document.createElement("div"),name=document.createElement("strong"),price=document.createElement("small"),qty=document.createElement("div");
+    name.textContent=item.name;price.textContent=money(item.price)+" each";qty.className="qty";
+    const minus=document.createElement("button");minus.type="button";minus.textContent="−";minus.addEventListener("click",()=>changeQty(key,-1));
+    const number=document.createElement("span");number.textContent=item.quantity;
+    const plus=document.createElement("button");plus.type="button";plus.textContent="+";plus.addEventListener("click",()=>changeQty(key,1));
+    qty.append(minus,number,plus);info.append(name,price,qty);
+    const line=document.createElement("strong");line.textContent=money(item.price*item.quantity);row.append(info,line);cartItems.appendChild(row);
+  }
+  cartCount.textContent=count;totalEl.textContent=money(total);
+  document.getElementById("checkoutBtn").disabled=!cart.size;
+}
+const modal=document.getElementById("checkoutModal"),message=document.getElementById("message");
+
+document.getElementById("checkoutBtn")
+.addEventListener("click",()=>{if(!cart.size)
+  return;closeCart();message.textContent="";modal.classList
+  .add("show");});
+document.getElementById("cancelCheckout")
+.addEventListener("click",()=>modal.classList
+.remove("show"));
+document.getElementById("checkoutForm").addEventListener("submit",async event=>{
+  event.preventDefault();if(!cart.size){message.textContent="Please add an item first.";return;}
+  const form=new FormData(event.currentTarget);
+  const items=Array.from(cart.values()).map(item=>({name:item.name,quantity:item.quantity,price:item.price,lineTotal:item.price*item.quantity}));
+  const totalAmount=items.reduce((sum,item)=>sum+item.lineTotal,0);
+  const payload={fullName:String(form.get("fullName")||"").trim(),phone:String(form.get("phone")||"").trim(),email:String(form.get("email")||"").trim(),paymentMode:String(form.get("paymentMode")||""),items,totalAmount,status:"Pending"};
+  const button=document.getElementById("placeOrder");button.disabled=true;button.textContent="Submitting...";message.textContent="";
+  try{
+    const response=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(result.message||"Order could not be placed. Please try again.");
+    message.textContent="Order placed successfully!"+(result.orderNumber?" Order number: "+result.orderNumber:"");
+    cart.clear();renderCart();event.currentTarget.reset();
+  }catch(error){message.textContent=error.message||"Could not connect to the server. Please try again.";}
+  finally{button.disabled=false;button.textContent="Place Order";}
+});
+document.getElementById("search").addEventListener("input",event=>{
+  const query=event.target.value.trim().toLowerCase();
+  document.querySelectorAll(".card").forEach(card=>card.classList.toggle("hidden",!(card.dataset.name+" "+card.innerText).toLowerCase().includes(query)));
+  document.querySelectorAll(".section").forEach(section=>section.classList.toggle("hidden",section.querySelectorAll(".card:not(.hidden)").length===0));
+});
+renderCart();
+</script>
+</body>
+</html>
